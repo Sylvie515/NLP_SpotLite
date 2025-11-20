@@ -1,6 +1,5 @@
 # PyABSA: https://github.com/yangheng95/PyABSA
 # KeyBERT
-# pip install pyabsa keybert sentence-transformers scikit-learn emoji transformers
 import os
 import json
 import re
