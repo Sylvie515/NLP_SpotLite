@@ -1,0 +1,403 @@
+{
+  "food": [
+    {
+      "score": -0.249,
+      "sentiment": "mixed"
+    },
+    {
+      "positive": [
+        [
+          "server",
+          27.64,
+          30.14,
+          0.1545
+        ],
+        [
+          "quality",
+          10.0,
+          11.4,
+          0.1997
+        ],
+        [
+          "nate",
+          5.2,
+          5.37,
+          0.0887
+        ],
+        [
+          "jerry",
+          4.33,
+          4.98,
+          0.2128
+        ],
+        [
+          "options",
+          4.33,
+          4.59,
+          0.26
+        ]
+      ],
+      "negative": [
+        [
+          "food",
+          36.3,
+          52.29,
+          0.6669
+        ],
+        [
+          "buffet",
+          13.15,
+          15.47,
+          0.4794
+        ],
+        [
+          "meal",
+          8.58,
+          10.62,
+          0.5596
+        ],
+        [
+          "meat",
+          7.72,
+          8.78,
+          0.4643
+        ],
+        [
+          "fried rice",
+          5.35,
+          6.68,
+          0.4427
+        ]
+      ],
+      "neutral": [
+        [
+          "crab",
+          17.95,
+          22.02,
+          0.2899
+        ],
+        [
+          "dining",
+          8.27,
+          10.35,
+          0.4411
+        ],
+        [
+          "miso",
+          6.61,
+          8.52,
+          0.1719
+        ],
+        [
+          "fried",
+          5.67,
+          6.82,
+          0.4041
+        ],
+        [
+          "drinks",
+          5.35,
+          6.16,
+          0.3332
+        ]
+      ]
+    }
+  ],
+  "price": [
+    {
+      "score": -0.826,
+      "sentiment": "negative"
+    },
+    {
+      "positive": [
+        [
+          "pricing",
+          0.24,
+          2.38,
+          0.5322
+        ]
+      ],
+      "negative": [
+        [
+          "money",
+          1.97,
+          8.33,
+          0.3055
+        ],
+        [
+          "point",
+          2.44,
+          7.14,
+          0.2603
+        ],
+        [
+          "price point",
+          0.94,
+          5.95,
+          0.6133
+        ],
+        [
+          "prices",
+          0.31,
+          2.38,
+          0.5195
+        ],
+        [
+          "pricetag",
+          0.08,
+          1.19,
+          0.5338
+        ]
+      ],
+      "neutral": [
+        [
+          "price",
+          8.03,
+          84.52,
+          0.8361
+        ],
+        [
+          "value",
+          1.42,
+          9.52,
+          0.501
+        ],
+        [
+          "cost",
+          1.5,
+          8.33,
+          0.525
+        ]
+      ]
+    }
+  ],
+  "environment": [
+    {
+      "score": 0.691,
+      "sentiment": "positive"
+    },
+    {
+      "positive": [
+        [
+          "atmosphere",
+          6.85,
+          52.63,
+          0.4125
+        ],
+        [
+          "place",
+          12.52,
+          30.26,
+          0.3365
+        ],
+        [
+          "ambience",
+          1.1,
+          7.89,
+          0.4652
+        ],
+        [
+          "decor",
+          1.26,
+          6.58,
+          0.2638
+        ],
+        [
+          "interior",
+          0.94,
+          5.26,
+          0.3156
+        ],
+        [
+          "lighting",
+          0.79,
+          3.95,
+          0.2711
+        ],
+        [
+          "surroundings",
+          0.16,
+          1.32,
+          0.3479
+        ]
+      ],
+      "negative": [
+        [
+          "environment",
+          1.65,
+          10.53,
+          0.4681
+        ],
+        [
+          "parking",
+          7.01,
+          5.26,
+          0.4731
+        ],
+        [
+          "music",
+          0.94,
+          3.95,
+          0.4912
+        ]
+      ],
+      "neutral": []
+    }
+  ],
+  "service": [
+    {
+      "score": -0.391,
+      "sentiment": "negative"
+    },
+    {
+      "positive": [
+        [
+          "quality",
+          10.0,
+          15.12,
+          0.2618
+        ],
+        [
+          "staff",
+          6.77,
+          14.69,
+          0.4238
+        ],
+        [
+          "care",
+          3.7,
+          5.18,
+          0.2175
+        ],
+        [
+          "guy",
+          0.87,
+          1.94,
+          0.1994
+        ],
+        [
+          "orders",
+          1.26,
+          1.3,
+          0.3303
+        ]
+      ],
+      "negative": [
+        [
+          "service",
+          32.13,
+          77.32,
+          0.5706
+        ],
+        [
+          "served",
+          3.23,
+          4.1,
+          0.4214
+        ],
+        [
+          "manager",
+          1.89,
+          2.59,
+          0.3889
+        ],
+        [
+          "pay",
+          1.26,
+          1.73,
+          0.2698
+        ],
+        [
+          "team",
+          1.18,
+          1.51,
+          0.2525
+        ]
+      ],
+      "neutral": [
+        [
+          "waiter",
+          6.06,
+          12.96,
+          0.7342
+        ]
+      ]
+    }
+  ],
+  "waiting_time": [
+    {
+      "score": 0.228,
+      "sentiment": "mixed"
+    },
+    {
+      "positive": [
+        [
+          "time",
+          19.13,
+          90.12,
+          0.5174
+        ],
+        [
+          "wait time",
+          8.35,
+          58.02,
+          0.5822
+        ],
+        [
+          "lines",
+          0.16,
+          1.23,
+          0.3928
+        ]
+      ],
+      "negative": [
+        [
+          "wait",
+          11.97,
+          69.14,
+          0.4417
+        ],
+        [
+          "minutes",
+          2.2,
+          11.11,
+          0.4274
+        ],
+        [
+          "waiting",
+          0.87,
+          6.17,
+          0.5687
+        ],
+        [
+          "arrive",
+          0.55,
+          3.7,
+          0.3383
+        ],
+        [
+          "waited",
+          0.87,
+          2.47,
+          0.4926
+        ],
+        [
+          "waits",
+          0.08,
+          1.23,
+          0.5882
+        ],
+        [
+          "minutes time",
+          0.08,
+          0.0,
+          0.4692
+        ]
+      ],
+      "neutral": []
+    }
+  ],
+  "review_cnt": 1270,
+  "price_per_person": "50-100",
+  "summary": "The restaurant offers a pricey dining experience with most dishes costing between $50 and $100 per person. While many patrons appreciate the elegant ambiance, some find the prices steep. Service can be hit or miss, frustrating some customers. Food quality is a mixed bag, with several diners enjoying the servers but others noting issues with the buffet. The wait time can vary, with some finding it reasonable, but others experiencing longer than desired delays."
+}

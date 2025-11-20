@@ -1,0 +1,231 @@
+{
+  "food": [
+    {
+      "score": 0.462,
+      "sentiment": "positive"
+    },
+    {
+      "positive": [
+        [
+          "food",
+          40.0,
+          59.62,
+          0.7005
+        ],
+        [
+          "tasty",
+          8.89,
+          15.38,
+          0.4732
+        ],
+        [
+          "cheese",
+          4.44,
+          7.69,
+          0.463
+        ],
+        [
+          "vegetable",
+          4.44,
+          7.69,
+          0.4347
+        ],
+        [
+          "meal",
+          3.33,
+          5.77,
+          0.5761
+        ],
+        [
+          "dishes cheese naan",
+          3.33,
+          5.77,
+          0.5313
+        ],
+        [
+          "noodles",
+          2.22,
+          3.85,
+          0.483
+        ],
+        [
+          "chicken thali",
+          2.22,
+          3.85,
+          0.4355
+        ]
+      ],
+      "negative": [
+        [
+          "chicken",
+          16.67,
+          28.85,
+          0.5489
+        ],
+        [
+          "rice",
+          7.78,
+          11.54,
+          0.6021
+        ]
+      ],
+      "neutral": [
+        [
+          "dishes",
+          25.56,
+          40.38,
+          0.5298
+        ],
+        [
+          "naan",
+          21.11,
+          34.62,
+          0.4258
+        ],
+        [
+          "garlic naan",
+          17.78,
+          28.85,
+          0.705
+        ],
+        [
+          "garlic",
+          17.78,
+          28.85,
+          0.5678
+        ],
+        [
+          "dishes garlic naan",
+          11.11,
+          17.31,
+          0.7365
+        ]
+      ]
+    }
+  ],
+  "price": [
+    {
+      "score": 1.0,
+      "sentiment": "positive"
+    },
+    {
+      "positive": [
+        [
+          "price",
+          5.56,
+          100.0,
+          0.9675
+        ]
+      ],
+      "negative": [],
+      "neutral": []
+    }
+  ],
+  "environment": [
+    {
+      "score": 1.0,
+      "sentiment": "positive"
+    },
+    {
+      "positive": [
+        [
+          "place",
+          10.0,
+          44.44,
+          0.4768
+        ],
+        [
+          "atmosphere",
+          2.22,
+          22.22,
+          0.6451
+        ],
+        [
+          "people",
+          3.33,
+          22.22,
+          0.4332
+        ],
+        [
+          "ambience",
+          1.11,
+          11.11,
+          0.6231
+        ]
+      ],
+      "negative": [],
+      "neutral": [
+        [
+          "location",
+          2.22,
+          11.11,
+          0.8681
+        ]
+      ]
+    }
+  ],
+  "service": [
+    {
+      "score": 1.0,
+      "sentiment": "positive"
+    },
+    {
+      "positive": [
+        [
+          "service",
+          13.33,
+          61.11,
+          0.5979
+        ],
+        [
+          "staff",
+          7.78,
+          38.89,
+          0.5899
+        ],
+        [
+          "waitress",
+          1.11,
+          5.56,
+          0.6071
+        ]
+      ],
+      "negative": [],
+      "neutral": []
+    }
+  ],
+  "waiting_time": [
+    {
+      "score": -0.333,
+      "sentiment": "mixed"
+    },
+    {
+      "positive": [
+        [
+          "time",
+          15.56,
+          100.0,
+          0.4924
+        ]
+      ],
+      "negative": [
+        [
+          "wait time",
+          7.78,
+          100.0,
+          0.9173
+        ],
+        [
+          "wait",
+          10.0,
+          100.0,
+          0.7992
+        ]
+      ],
+      "neutral": []
+    }
+  ],
+  "review_cnt": 90,
+  "price_per_person": "10-20",
+  "summary": "The restaurant offers a satisfying dining experience with prices ranging from $10 to $20 per person. Most guests enjoy the food quality and service, noting the staff's attentiveness. The atmosphere is generally positive, enhancing the overall experience. While waiting times vary, many find the time spent enjoyable, making the visit a worthwhile one."
+}

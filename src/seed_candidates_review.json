@@ -1,0 +1,70 @@
+{
+  "food": [
+    "beef",
+    "buffet",
+    "cheese",
+    "chicken",
+    "chicken fettuccine",
+    "chicken wings",
+    "chips",
+    "crab",
+    "dinner",
+    "dishes",
+    "drinks",
+    "fish",
+    "flavors",
+    "fried",
+    "garlic",
+    "garlic naan",
+    "grilled",
+    "grilled meats",
+    "hawaiian pizza",
+    "lasagna",
+    "order",
+    "pasta",
+    "pizza",
+    "portions",
+    "rice",
+    "sandwich",
+    "sauce",
+    "seafood pasta",
+    "steak",
+    "taco",
+    "waffle",
+    "wings"
+  ],
+  "price": [
+    "food price",
+    "money",
+    "pricey",
+    "spent"
+  ],
+  "environment": [
+    "decor",
+    "interior",
+    "location",
+    "noise",
+    "people",
+    "place",
+    "style"
+  ],
+  "service": [
+    "care",
+    "gentleman",
+    "guy",
+    "lady",
+    "order",
+    "orders",
+    "owner",
+    "person",
+    "quality",
+    "served",
+    "waitress"
+  ],
+  "waiting_time": [
+    "hour",
+    "minutes",
+    "wait time",
+    "waiting time"
+  ]
+}

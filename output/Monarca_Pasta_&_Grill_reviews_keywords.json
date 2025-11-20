@@ -1,0 +1,207 @@
+{
+  "food": [
+    {
+      "score": 0.034,
+      "sentiment": "mixed"
+    },
+    {
+      "positive": [
+        [
+          "fettuccine",
+          10.0,
+          23.53,
+          0.4472
+        ],
+        [
+          "food",
+          7.5,
+          17.65,
+          0.5102
+        ],
+        [
+          "chicken fettuccine",
+          5.0,
+          11.76,
+          0.5861
+        ],
+        [
+          "sauce",
+          5.0,
+          11.76,
+          0.4453
+        ],
+        [
+          "portions",
+          5.0,
+          11.76,
+          0.4242
+        ],
+        [
+          "grilled",
+          5.0,
+          11.76,
+          0.3545
+        ]
+      ],
+      "negative": [
+        [
+          "chicken",
+          17.5,
+          41.18,
+          0.5585
+        ],
+        [
+          "pizza",
+          7.5,
+          17.65,
+          0.6687
+        ],
+        [
+          "pizzas",
+          5.0,
+          11.76,
+          0.6344
+        ],
+        [
+          "taste",
+          5.0,
+          11.76,
+          0.4852
+        ]
+      ],
+      "neutral": [
+        [
+          "pasta",
+          20.0,
+          47.06,
+          0.602
+        ],
+        [
+          "flavor",
+          5.0,
+          11.76,
+          0.4996
+        ],
+        [
+          "seafood pasta",
+          2.5,
+          5.88,
+          0.6885
+        ],
+        [
+          "pasta chicken",
+          2.5,
+          5.88,
+          0.6879
+        ],
+        [
+          "lasagna",
+          2.5,
+          5.88,
+          0.5975
+        ]
+      ]
+    }
+  ],
+  "price": [
+    {
+      "score": 1.0,
+      "sentiment": "positive"
+    },
+    {
+      "positive": [
+        [
+          "prices",
+          5.0,
+          50.0,
+          0.7753
+        ],
+        [
+          "value",
+          5.0,
+          50.0,
+          0.6047
+        ]
+      ],
+      "negative": [],
+      "neutral": [
+        [
+          "price",
+          7.5,
+          75.0,
+          0.9675
+        ]
+      ]
+    }
+  ],
+  "environment": [
+    {
+      "score": -0.667,
+      "sentiment": "negative"
+    },
+    {
+      "positive": [
+        [
+          "atmosphere",
+          2.5,
+          16.67,
+          0.6131
+        ]
+      ],
+      "negative": [
+        [
+          "place",
+          15.0,
+          83.33,
+          0.8769
+        ]
+      ],
+      "neutral": []
+    }
+  ],
+  "service": [
+    {
+      "score": 1.0,
+      "sentiment": "positive"
+    },
+    {
+      "positive": [
+        [
+          "staff",
+          10.0,
+          66.67,
+          0.7028
+        ],
+        [
+          "service",
+          7.5,
+          50.0,
+          0.6262
+        ]
+      ],
+      "negative": [],
+      "neutral": []
+    }
+  ],
+  "waiting_time": [
+    {
+      "score": 1.0,
+      "sentiment": "positive"
+    },
+    {
+      "positive": [
+        [
+          "wait",
+          10.0,
+          100.0,
+          0.9099
+        ]
+      ],
+      "negative": [],
+      "neutral": []
+    }
+  ],
+  "review_cnt": 40,
+  "price_per_person": "10-20",
+  "summary": "The restaurant offers a reasonable price range of $10-20 per person, which many diners appreciate, particularly noting the fair wait times. Service was generally positive, with staff receiving praise. However, the atmosphere and cleanliness were a point of contention for some. Food quality was mixed, with fettuccine being a hit for many, but some found the chicken disappointing. Overall, while there are some negatives, the positive aspects like pricing and service make it worth a try."
+}

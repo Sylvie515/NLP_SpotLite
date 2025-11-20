@@ -1,0 +1,330 @@
+{
+  "food": [
+    {
+      "score": -0.422,
+      "sentiment": "negative"
+    },
+    {
+      "positive": [
+        [
+          "broth",
+          1.91,
+          5.71,
+          0.3506
+        ],
+        [
+          "variety",
+          1.53,
+          5.71,
+          0.3236
+        ],
+        [
+          "chinese",
+          2.29,
+          5.71,
+          0.2775
+        ],
+        [
+          "spicy hot pot",
+          1.15,
+          4.29,
+          0.4825
+        ],
+        [
+          "spicy hot",
+          1.15,
+          4.29,
+          0.4357
+        ],
+        [
+          "choice",
+          1.15,
+          4.29,
+          0.2639
+        ],
+        [
+          "hot",
+          1.91,
+          4.29,
+          0.2506
+        ]
+      ],
+      "negative": [
+        [
+          "food",
+          17.18,
+          52.86,
+          0.6498
+        ],
+        [
+          "taste",
+          5.73,
+          20.0,
+          0.4777
+        ],
+        [
+          "ingredients",
+          3.05,
+          11.43,
+          0.414
+        ]
+      ],
+      "neutral": [
+        [
+          "soup",
+          2.29,
+          8.57,
+          0.5014
+        ],
+        [
+          "dinner",
+          1.15,
+          4.29,
+          0.5243
+        ],
+        [
+          "soup base",
+          1.15,
+          4.29,
+          0.4898
+        ],
+        [
+          "slices",
+          1.15,
+          4.29,
+          0.461
+        ],
+        [
+          "base",
+          1.15,
+          4.29,
+          0.2534
+        ]
+      ]
+    }
+  ],
+  "price": [
+    {
+      "score": -0.333,
+      "sentiment": "mixed"
+    },
+    {
+      "positive": [
+        [
+          "food",
+          17.18,
+          31.58,
+          0.3039
+        ],
+        [
+          "priced",
+          1.53,
+          10.53,
+          0.6106
+        ],
+        [
+          "food price",
+          0.38,
+          5.26,
+          0.7449
+        ]
+      ],
+      "negative": [
+        [
+          "price",
+          7.25,
+          84.21,
+          0.8064
+        ],
+        [
+          "pricey",
+          0.38,
+          5.26,
+          0.6253
+        ],
+        [
+          "spent",
+          0.38,
+          5.26,
+          0.4439
+        ]
+      ],
+      "neutral": []
+    }
+  ],
+  "environment": [
+    {
+      "score": 0.846,
+      "sentiment": "positive"
+    },
+    {
+      "positive": [
+        [
+          "atmosphere",
+          1.53,
+          30.77,
+          0.5133
+        ],
+        [
+          "environment",
+          1.91,
+          30.77,
+          0.4772
+        ],
+        [
+          "music",
+          0.76,
+          15.38,
+          0.4283
+        ],
+        [
+          "parking",
+          1.53,
+          7.69,
+          0.5136
+        ],
+        [
+          "lighting",
+          0.38,
+          7.69,
+          0.4515
+        ]
+      ],
+      "negative": [
+        [
+          "space",
+          0.76,
+          7.69,
+          0.5762
+        ]
+      ],
+      "neutral": [
+        [
+          "place",
+          3.82,
+          23.08,
+          0.8769
+        ]
+      ]
+    }
+  ],
+  "service": [
+    {
+      "score": 0.586,
+      "sentiment": "positive"
+    },
+    {
+      "positive": [
+        [
+          "service",
+          6.87,
+          71.43,
+          0.6015
+        ],
+        [
+          "staff",
+          1.91,
+          14.29,
+          0.4189
+        ],
+        [
+          "quality",
+          0.76,
+          9.52,
+          0.401
+        ],
+        [
+          "performance",
+          0.38,
+          4.76,
+          0.3212
+        ],
+        [
+          "guys",
+          0.76,
+          4.76,
+          0.2903
+        ],
+        [
+          "convenient",
+          0.38,
+          4.76,
+          0.2497
+        ]
+      ],
+      "negative": [
+        [
+          "guy",
+          0.76,
+          9.52,
+          0.4604
+        ],
+        [
+          "served",
+          0.76,
+          9.52,
+          0.4415
+        ],
+        [
+          "waitress",
+          0.38,
+          4.76,
+          0.5716
+        ],
+        [
+          "order",
+          1.53,
+          4.76,
+          0.4096
+        ]
+      ],
+      "neutral": []
+    }
+  ],
+  "waiting_time": [
+    {
+      "score": -0.267,
+      "sentiment": "mixed"
+    },
+    {
+      "positive": [
+        [
+          "wait",
+          6.49,
+          90.0,
+          0.587
+        ],
+        [
+          "waiting time",
+          0.38,
+          10.0,
+          0.784
+        ],
+        [
+          "waiting",
+          0.76,
+          10.0,
+          0.6895
+        ]
+      ],
+      "negative": [
+        [
+          "time",
+          10.31,
+          100.0,
+          0.4882
+        ],
+        [
+          "wait time",
+          6.49,
+          90.0,
+          0.6997
+        ]
+      ],
+      "neutral": []
+    }
+  ],
+  "review_cnt": 262,
+  "price_per_person": "20-30",
+  "summary": "The service is generally appreciated, but the food quality has received mixed to negative feedback, with many noting issues in taste. Pricing ranges from $20 to $30 per person, with some finding it fair given the quality, though others feel it's a bit steep. Wait times vary, with some enjoying the wait, but many find it long. The atmosphere is a standout feature, making the experience pleasant overall."
+}
