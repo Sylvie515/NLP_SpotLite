@@ -6,7 +6,7 @@ A System for Personalized, Aspect-Based Restaurant Recommendation
 
 ---  
 
-## 📁 **Project Structure**  
+## 🗂️ **Project Structure**  
  
 SpotLite/  
 │  
@@ -23,7 +23,7 @@ SpotLite/
 
 ---  
 
-## 📦 **Installation & Requirements**  
+## 🧰 **Installation & Requirements**  
 
 ### **1️⃣ Install Dependencies**  
 
@@ -44,7 +44,7 @@ torch==2.1.2
 
 ---  
 
-## 🤖 **Local LLM Download (for Summary Rewrite)**  
+## 🖥️ **Local LLM Download (for Summary Rewrite)**  
 
 1. Download the following model from Hugging Face  
 🔗 [Qwen2.5-7B-Instruct-GGUF](https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF/tree/main)  
@@ -58,20 +58,20 @@ LOCAL_QWEN = r"C:\hf_cache\models\qwen2.5-7b-instruct-q4_k_m\qwen2.5-7b-instruct
 
 ---  
 
-## 🧠 **Processing Pipeline**  
+## 🔁 **Processing Pipeline**  
 
 ### **1️⃣ Text Cleaning & Google Metadata Parsing**  
 
-✔ Removes emojis, repeated whitespace, URLs  
-✔ Removes Google attributes such as:  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Food: 4  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Service: 3  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meal Type: Dinner  
-✔ Extracts available price range and stores it.  
+•	Removes emojis, repeated whitespace, URLs  
+•	Removes Google attributes such as:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Food: 4  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Service: 3  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meal Type: Dinner  
+•	Extracts available price range and stores it.  
 
 ### **2️⃣ Aspect & Sentiment Detection (PyABSA)**  
 
-•	[PyABSA](https://github.com/yangheng95/PyABSA)  
+•	🔗 [PyABSA](https://github.com/yangheng95/PyABSA)  
 •	Each review is analyzed to extract: (aspect term, opinion term, sentiment)  
 •	Example extraction:  
 | Review Text | Extracted |  
@@ -119,7 +119,7 @@ A local Qwen 2.5-7B-Instruct model rewrites the bullet structure summary into a 
 
 ---  
 
-## ▶️ **Usage**  
+## ⚙️ **Usage**  
 
 •	Process a Single File  
 ```bash
