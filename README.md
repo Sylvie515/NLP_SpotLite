@@ -123,7 +123,7 @@ A local Qwen 2.5-7B-Instruct model rewrites the bullet structure summary into a 
 •	The system automatically identifies commonly praised menu items based on real user reviews.  
 •	A dish is included only if:  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Exists in reviews: Must appear in real text (no LLM hallucination)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sentiment: Must be positive
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sentiment: Must be positive  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Ranking: Sorted by aspect mention rate (% of food-related reviews), then by relevance score  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Removes generic words (e.g., “food”, “meal”, “dish”)  
 
