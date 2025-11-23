@@ -26,13 +26,13 @@ SpotLite/
 
 ## 🧰 **Installation & Requirements**  
 
-### **1️⃣ Install Dependencies**  
+### **1. Install Dependencies**  
 
 ```bash
 pip install pyabsa keybert sentence-transformers scikit-learn emoji transformers llama-cpp-python
 ```  
 
-### **2️⃣ Required Versions**  
+### **2. Required Versions**  
 
 python==3.10  
 pyabsa==2.4.3  
@@ -61,7 +61,7 @@ LOCAL_QWEN = r"C:\hf_cache\models\qwen2.5-7b-instruct-q4_k_m\qwen2.5-7b-instruct
 
 ## 🔁 **Processing Pipeline**  
 
-### **1️⃣ Text Cleaning & Google Metadata Parsing**  
+### **1. Text Cleaning & Google Metadata Parsing**  
 
 •	Removes emojis, repeated whitespace, URLs  
 •	Removes Google attributes such as:  
@@ -70,7 +70,7 @@ LOCAL_QWEN = r"C:\hf_cache\models\qwen2.5-7b-instruct-q4_k_m\qwen2.5-7b-instruct
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meal Type: Dinner  
 •	Extracts available price range and stores it.  
 
-### **2️⃣ Aspect & Sentiment Detection (PyABSA)**  
+### **2. Aspect & Sentiment Detection (PyABSA)**  
 
 •	🔗 [PyABSA](https://github.com/yangheng95/PyABSA)  
 •	Each review is analyzed to extract: (aspect term, opinion term, sentiment)  
@@ -79,12 +79,12 @@ LOCAL_QWEN = r"C:\hf_cache\models\qwen2.5-7b-instruct-q4_k_m\qwen2.5-7b-instruct
 | ------ | ------ |  
 | "Amazing broth but slow service." | "broth → food → positive", "service → negative" |  
 
-### **3️⃣ Semantic Aspect Assignment**  
+### **3. Semantic Aspect Assignment**  
 	
 •	Each phrase is vector-encoded and compared with aspect prototype embeddings.  
 •	If cosine similarity ≥ 0.50, the phrase is assigned.  
 
-### **4️⃣ Keyword Filtering & Ranking**  
+### **4. Keyword Filtering & Ranking**  
 
 •	Using KeyBERT (1–3 token n-grams) + Semantic Scoring  
 •	Each retained keyword includes:  
@@ -95,7 +95,7 @@ LOCAL_QWEN = r"C:\hf_cache\models\qwen2.5-7b-instruct-q4_k_m\qwen2.5-7b-instruct
 | Relevance Score | 0.7 * KeyBERT relevance + 0.3 * cosine similarity |  
 Only keywords passing noise filters and coverage thresholds (at least 5% aspect_review) appear in the final output.  
 	
-### **5️⃣ Aspect Sentiment Scoring**  
+### **5. Aspect Sentiment Scoring**  
 
 •	For each aspect, sentiment strength is computed as: score = (positive - negative) / (positive + negative)
 | Range | Label |  
@@ -105,18 +105,27 @@ Only keywords passing noise filters and coverage thresholds (at least 5% aspect_
 | score < -0.35 | negative |  
 | positive + negative = 0 | neutral |  
 
-### **6️⃣ Keyword-Driven Structured Summary Generation**  
+### **6. Keyword-Driven Structured Summary Generation**  
 	
 Summaries use templated natural-language statements based on sentiment distributions.  
 	
-### **7️⃣ LLM Rewrite to Natural Summary**  
+### **7. LLM Rewrite to Natural Summary**  
 
 A local Qwen 2.5-7B-Instruct model rewrites the bullet structure summary into a smooth summary.  
 
-### **8️⃣ Self-Growing Aspect Seed**  
+### **8. Self-Growing Aspect Seed**  
  
 •	If a keyword appears frequently and similarity ≥ 0.60, it is auto-added.  
 •	If between 0.50 and 0.59, it is stored in seed_candidates_review.json for manual approval.  
+
+### **9. Recommended Dishes Extraction**  
+ 
+•	The system automatically identifies commonly praised menu items based on real user reviews.  
+•	A dish is included only if:  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Exists in reviews: Must appear in real text (no LLM hallucination)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Sentiment: Must be positive
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Ranking: Sorted by aspect mention rate (% of food-related reviews), then by relevance score  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Removes generic words (e.g., “food”, “meal”, “dish”)  
 
 ---  
 
@@ -147,7 +156,8 @@ python keywords.py --input "./data"
  "waiting_time": [{......}, {......}],
  "price_per_person": "10-20",
  "review_cnt": 40,
- "summary": "......"}
+ "summary": "......",
+ "recommended_dishes": ["spicy beef broth",  "pork dumplings", "handmade noodles"]}
 ```  
 
 •	Each aspect receives an overall sentiment score (ranging from -1 to +1) and a corresponding label: positive, negative, mixed, or neutral.  
@@ -162,8 +172,3 @@ python keywords.py --input "./data"
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•	Cosine similarity between the keyword embedding and the aspect prototype embedding.  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•	KeyBERT relevance score based on contextual keyword importance.  
 This produces a Weighted Phrase Importance Score, helping determine whether the phrase is strongly representative of the aspect or only weakly associated.  
-
-	
-
-
-
