@@ -1,111 +1,111 @@
 {
   "food": [
     {
-      "score": 0.24,
+      "score": -0.144,
       "sentiment": "mixed"
     },
     {
       "positive": [
         [
-          "ceviche",
-          13.03,
-          17.94,
-          0.2548
+          "tostada",
+          7.2,
+          10.8,
+          0.2541
         ],
         [
           "mexican",
           6.52,
-          9.26,
-          0.2771
+          9.82,
+          0.2845
         ],
         [
-          "experience",
-          6.06,
-          7.94,
-          0.155
+          "uni",
+          6.21,
+          8.42,
+          0.0885
         ],
         [
-          "menu",
-          4.85,
-          7.21,
-          0.2785
+          "food court",
+          4.17,
+          6.17,
+          0.367
         ],
         [
-          "order",
-          4.7,
-          7.06,
-          0.2764
-        ],
-        [
-          "options",
-          2.12,
+          "oysters",
           2.65,
-          0.2335
+          4.35,
+          0.3817
         ]
       ],
       "negative": [
         [
           "taco",
           12.88,
-          17.35,
-          0.4993
+          18.23,
+          0.4657
         ],
         [
-          "flavor",
-          5.08,
-          7.21,
-          0.4688
+          "fish",
+          11.52,
+          17.53,
+          0.3964
+        ],
+        [
+          "dish",
+          4.55,
+          6.31,
+          0.481
+        ],
+        [
+          "sea",
+          3.94,
+          6.03,
+          0.3002
         ],
         [
           "taste",
           3.56,
-          4.85,
-          0.4189
-        ],
-        [
-          "sauces",
-          1.74,
-          2.5,
-          0.4703
+          4.77,
+          0.35
         ]
       ],
       "neutral": [
         [
           "food",
           29.55,
-          50.0,
-          0.5363
+          48.95,
+          0.4973
         ],
         [
-          "fish",
-          11.52,
-          16.62,
-          0.3701
+          "scallop",
+          9.62,
+          14.17,
+          0.3115
         ],
         [
           "chips",
           6.52,
-          8.53,
-          0.4376
+          8.42,
+          0.3783
         ],
         [
-          "dish",
-          4.55,
-          6.47,
-          0.5042
+          "pulpo",
+          4.7,
+          7.15,
+          0.2917
         ],
         [
           "court",
           4.17,
-          6.18,
-          0.19
+          6.17,
+          0.1516
         ]
       ]
     }
   ],
   "price": [
     {
-      "score": 0.067,
+      "score": 0.068,
       "sentiment": "mixed"
     },
     {
@@ -113,79 +113,79 @@
         [
           "food",
           29.55,
-          54.93,
-          0.2176
+          54.61,
+          0.2168
         ],
         [
           "prices",
           2.8,
-          22.54,
-          0.7002
+          22.7,
+          0.7032
         ],
         [
           "priced",
           1.14,
-          8.45,
-          0.6078
+          8.51,
+          0.6072
         ],
         [
           "vibe",
           1.06,
-          2.82,
-          0.1281
+          2.84,
+          0.1241
         ],
         [
           "price point",
           0.15,
-          0.7,
-          0.5598
+          0.71,
+          0.5784
+        ],
+        [
+          "price value",
+          0.08,
+          0.0,
+          0.5399
         ]
       ],
       "negative": [
         [
           "price",
           8.79,
-          69.72,
-          0.7326
+          70.21,
+          0.7637
         ],
         [
           "value",
           1.06,
-          5.63,
-          0.4686
+          5.67,
+          0.4786
         ],
         [
           "pricing",
           0.3,
-          1.41,
-          0.609
+          1.42,
+          0.6404
         ],
         [
           "dollars",
           0.08,
-          0.7,
-          0.4918
-        ],
-        [
-          "money",
-          0.23,
-          0.7,
-          0.3409
+          0.71,
+          0.4627
         ]
       ],
       "neutral": [
         [
           "specials",
           0.3,
-          2.11,
-          0.4628
+          2.13,
+          0.465
         ]
       ]
     }
   ],
   "environment": [
     {
-      "score": 0.663,
+      "score": 0.667,
       "sentiment": "positive"
     },
     {
@@ -193,152 +193,152 @@
         [
           "place",
           10.3,
-          46.15,
-          0.455
+          45.57,
+          0.4566
         ],
         [
           "atmosphere",
           2.42,
-          35.9,
-          0.5424
+          35.44,
+          0.54
         ],
         [
           "people",
           2.35,
-          6.41,
-          0.2999
+          7.59,
+          0.3003
         ],
         [
           "environment",
           0.76,
-          5.13,
-          0.4214
+          5.06,
+          0.4219
         ],
         [
           "colors",
           0.15,
-          1.28,
-          0.261
+          1.27,
+          0.2651
         ]
       ],
       "negative": [
         [
           "parking",
           4.92,
-          12.82,
-          0.5334
+          12.66,
+          0.5336
         ],
         [
           "location",
           0.76,
-          3.85,
-          0.3874
+          3.8,
+          0.3864
         ],
         [
           "ambience",
           0.15,
-          2.56,
-          0.5139
+          2.53,
+          0.5109
         ]
       ],
       "neutral": [
         [
           "space",
           0.68,
-          5.13,
-          0.4856
+          5.06,
+          0.4457
         ],
         [
           "toilet",
           0.08,
-          1.28,
-          0.5146
+          1.27,
+          0.517
+        ],
+        [
+          "water",
+          0.45,
+          1.27,
+          0.3763
         ]
       ]
     }
   ],
   "service": [
     {
-      "score": 0.932,
-      "sentiment": "positive"
+      "score": -0.179,
+      "sentiment": "mixed"
     },
     {
       "positive": [
         [
-          "service",
-          7.35,
-          61.19,
-          0.63
-        ],
-        [
           "staff",
           2.73,
-          23.88,
-          0.5065
-        ],
-        [
-          "quality",
-          4.85,
-          20.15,
-          0.3432
+          26.67,
+          0.5254
         ],
         [
           "order",
           4.7,
-          10.45,
-          0.2744
+          10.83,
+          0.2562
         ],
         [
           "person",
           6.67,
-          8.21,
-          0.206
+          8.33,
+          0.2125
         ],
         [
           "team",
           0.91,
-          2.24,
-          0.2731
+          2.5,
+          0.254
         ],
         [
-          "manager",
-          0.23,
-          1.49,
-          0.2935
+          "serving",
+          0.38,
+          1.67,
+          0.3966
+        ],
+        [
+          "cashier",
+          0.3,
+          1.67,
+          0.336
         ]
       ],
       "negative": [
         [
+          "service",
+          7.35,
+          68.33,
+          0.6317
+        ],
+        [
           "waiter",
           0.38,
-          2.24,
-          0.6922
+          2.5,
+          0.7079
         ],
         [
           "waitress",
           0.15,
-          1.49,
-          0.6067
+          1.67,
+          0.6324
         ],
         [
-          "waiters",
-          0.08,
-          0.75,
-          0.6386
+          "servers",
+          0.15,
+          1.67,
+          0.4081
         ]
       ],
       "neutral": [
         [
           "served",
           1.82,
-          6.72,
-          0.588
-        ],
-        [
-          "guy",
-          0.08,
-          0.75,
-          0.4304
+          7.5,
+          0.8606
         ]
       ]
     }
@@ -443,5 +443,12 @@
   ],
   "review_cnt": 1320,
   "price_per_person": "30-50",
-  "summary": "The service is generally praised, with many appreciating the attentiveness of the staff. Most reviewers found the waiting time to be acceptable, though the restaurant's pricing range of $30-50 was a mixed experience. While some enjoyed the ceviche, others were disappointed with the tacos. Overall, the atmosphere is well-received, but the price point is a consideration for some diners."
+  "summary": "The restaurant offers a mid-range dining experience with prices between $30-50 per person. Most guests find the waiting time enjoyable, and the ambiance adds to the positive atmosphere. Service quality varies, with some appreciating the attentiveness while others grumble about the care provided. Food quality is also mixed, with tostadas being a particular hit, but some tasters found tacos disappointing. Overall, while the food and setting are generally well-received, the price point is a consideration for many.",
+  "recommended_dishes": [
+    "tostada",
+    "mexican",
+    "uni",
+    "food court",
+    "oysters"
+  ]
 }

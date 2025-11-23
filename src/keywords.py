@@ -2,6 +2,7 @@
 # KeyBERT
 import os
 import json
+import csv
 import re
 import math
 import random
@@ -36,13 +37,32 @@ AUTO_SIM_THRESHOLD = 0.6  # >= 0.6 => auto add in seeds
 CANDIDATE_SIM_THRESHOLD = 0.5  # 0.5~0.6 => candidate  for manual review
 MIN_ASPECT_COVERAGE = 5.0  # at least 5% aspect_review
 
-# aspect seed grows along with # of restaurants
-DEFAULT_SEEDS = {"food": ["food", "taste", "flavor", "ingredients", "spicy", "sweet", "fresh", "delicious", "broth", "soup", "noodle", "meat", "vegetable", "meal", "dish", "dessert", "drink", "alcohol", "cocktail", "appetizer"],
-                 "price": ["price","cost","value","expensive","cheap","affordable","worth"],
-                 "environment": ["environment", "atmosphere", "ambience", "clean", "dirty", "crowded", "space", "noisy", "loud", "quiet", "cozy", "music", "lighting", "parking"],
-                 "service": ["service", "staff", "waiter", "cashier", "attitude", "friendly", "rude", "helpful", "explain", "speed", "delay", "slow", "fast", "quick"],
+# extra food keywords
+FOOD_CSV = os.path.join(SCRIPT_DIR, "food.csv")
+def food_csv():
+    if not os.path.exists(FOOD_CSV):
+        return []
+    # remove sentiment words from multi-word dishes (ex: "amazing spicy ramen" => "ramen")
+    sentiment_words = ["amazing", "terrible", "awful", "great", "good", "bad"]
+    cleaned_phrase = []
+    with open(FOOD_CSV, "r", encoding = "utf-8") as f:
+        for row in csv.reader(f):
+            if not row or not row[0].strip():
+                continue
+            phrase = row[0].strip().lower()
+            phrase = re.sub(r"\b(" + "|".join(sentiment_words) + r")\b", "", phrase).strip()
+            if not phrase:
+                # skip entries that become empty after removing sentiment words
+                continue
+            cleaned_phrase.append(phrase)
+    return cleaned_phrase
+# aspect keywords (default seeds)
+DEFAULT_SEEDS = {"food": ["food", "lunch", "dinner", "dining", "taste", "flavor", "ingredients", "spicy", "sweet", "fresh", "salty", "rich", "creamy", "broth", "soup", "noodle", "meat", "seafood", "vegetable", "meal", "dish", "dessert", "drink", "alcohol", "cocktail", "appetizer", "hotpot"] + food_csv(),
+                 "price": ["price", "cost", "value", "expensive", "cheap", "affordable", "overpriced"],
+                 "environment": ["environment", "atmosphere", "ambience", "decor", "clean", "dirty", "crowded", "space", "noisy", "loud", "quiet", "cozy", "music", "lighting", "parking"],
+                 "service": ["service", "staff", "waiter", "waitress", "cashier", "attitude", "explain", "speed", "delay", "slow", "fast", "quick"],
                  "waiting_time": ["waiting", "wait", "time", "queue", "line", "delay", "slow", "fast", "quick"]}
-# aspect keywords
+# aspect seed grows along with # of restaurants (default seeds + food keywords)
 SEED_FILE = os.path.join(SCRIPT_DIR, "aspect_seeds.json")
 def load_seeds():
     if os.path.exists(SEED_FILE):
@@ -79,6 +99,32 @@ def get_aspect_score(aspect_data):
         label = "mixed"
 
     return round(score, 3), label
+
+# recommended dishes (top positive food mentions)
+def recommended_dishes(food_keywords: dict, top_n = 5):
+    """
+    extract top recommended dishes based on:
+    - only positive sentiment mentions
+    - aspect mention percentage (primary sort key)
+    - weighted relevance score (secondary tie-breaker)
+    - must appear in real user reviews (not generated)
+    output: list of dish names ranked by popularity & sentiment.
+    """
+    if not food_keywords:
+        return []
+
+    candidates = []
+    # only consider positive food mentions
+    for phrase, overall_pct, aspect_pct, score in food_keywords.get("positive", []):
+        # ignore general non-dish terms
+        if phrase in ["food", "meal", "dish", "drink", "flavor", "taste"]:
+            continue
+        # must be mentioned in actual text (guaranteed from KeyBERT stage)
+        candidates.append((phrase, aspect_pct, score))
+    # sort by: aspect % desc => score desc
+    candidates.sort(key = lambda x: (-x[1], -x[2]))
+
+    return [candidate[0] for candidate in candidates[:top_n]]
 
 # AI summary: structured, statistics-aware summary aligned with aspect sentiment scores
 def build_summary(final_output):
@@ -202,7 +248,7 @@ def process_file(input_file):
 
     # aspect keywords
     seeds_from_file = load_seeds()
-    ASPECT_SEEDS = seeds_from_file or DEFAULT_SEEDS
+    ASPECT_SEEDS = {k: sorted(set(v), key =  str.lower) for k, v in (seeds_from_file or DEFAULT_SEEDS).items()}
 
 
 
@@ -477,6 +523,12 @@ def process_file(input_file):
         final_output["price_per_person"] = best_range
     raw_summary = build_summary(final_output)
     final_output["summary"] = rewrite_summary(raw_summary)
+    # recommended dishes (only if food aspect exists)
+    if "food" in final_output:
+        food_keywords = final_output["food"][1]
+        final_output["recommended_dishes"] = recommended_dishes(food_keywords)
+    else:
+        final_output["recommended_dishes"] = []
 
 
 
