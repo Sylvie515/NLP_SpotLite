@@ -12,7 +12,7 @@ SpotLite/
 │  
 ├── src/  
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── keywords.py&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(# main processing script)  
-│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── food.csv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(# seeds for food aspect)
+│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── food.csv&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(# seeds for food aspect)  
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├── aspect_seeds.json&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(# auto-growing seed dictionary)  
 │&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└── seed_candidates_review.json&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(# pending seed keywords for manual review)  
 │  
