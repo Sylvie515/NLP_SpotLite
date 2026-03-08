@@ -61,6 +61,20 @@ LOCAL_QWEN = r"C:\hf_cache\models\qwen2.5-7b-instruct-q4_k_m\qwen2.5-7b-instruct
 
 ## 🔁 **Processing Pipeline**  
 
+### **Pipeline Overview**  
+
+- **PyABSA (ATEPC)**: Candidate extraction  
+  Extracts aspect–opinion–sentiment triplets from each review and outputs candidate "compound phrases" with sentiment.  
+
+- **SBERT prototype matching**: Aspect assignment  
+  Each candidate phrase is embedded and compared (cosine similarity) to per-aspect prototype vectors (mean of seed embeddings).  
+  Phrases with similarity ≥ 0.5 are assigned to that aspect.  
+
+- **KeyBERT**: Top keyword extraction  
+  After grouping candidate phrases by assigned aspect, KeyBERT extracts representative n-gram keywords (1–3 tokens) from that group.  
+
+Finally, the extracted keywords and sentiment scores are used to generate aspect-level summaries and structured outputs.  
+
 ### **1. Text Cleaning & Google Metadata Parsing**  
 
 •	Removes emojis, repeated whitespace, URLs  
@@ -70,29 +84,33 @@ LOCAL_QWEN = r"C:\hf_cache\models\qwen2.5-7b-instruct-q4_k_m\qwen2.5-7b-instruct
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meal Type: Dinner  
 •	Extracts available price range and stores it.  
 
-### **2. Aspect & Sentiment Detection (PyABSA)**  
+### **2. Aspect Candidate Extraction & Sentiment Detection (PyABSA)**  
 
 •	🔗 [PyABSA](https://github.com/yangheng95/PyABSA)  
-•	Each review is analyzed to extract: (aspect term, opinion term, sentiment)  
+•	We use PyABSA (ATEPC) to extract candidate aspect–opinion–sentiment triplets from each review.  
 •	Example extraction:  
 | Review Text | Extracted |  
 | ------ | ------ |  
 | "Amazing broth but slow service." | "broth → food → positive", "service → negative" |  
 
-### **3. Semantic Aspect Assignment**  
-	
-•	Each phrase is vector-encoded and compared with aspect prototype embeddings.  
-•	If cosine similarity ≥ 0.50, the phrase is assigned.  
+•	These results form the "compound phrases" (opinion + aspect) and the associated sentiment labels will be further processed.  
+
+### **3. Semantic Aspect Assignment (SBERT prototype matching)**  
+
+•	For each aspect, we compute a prototype embedding (the mean embedding of current seed keywords).  
+•	Each candidate phrase (from PyABSA) is encoded using the SentenceTransformer embedder and compared to all prototype embeddings via cosine similarity.  
+•	If cosine similarity ≥ 0.50, the phrase is assigned to that aspect.  
 
 ### **4. Keyword Filtering & Ranking**  
 
-•	Using KeyBERT (1–3 token n-grams) + Semantic Scoring  
-•	Each retained keyword includes:  
+•	For each aspect, we run KeyBERT on the grouped candidate phrases to extract top candidate n-grams (1–3 tokens).  
+•	For each candidate phrase, we compute:  
 | Metric | Meaning |  
 | ------ | ------ |  
 | Overall % | % of all reviews mentioning the phrase |  
 | Aspect Coverage % | % of reviews related to that aspect mentioning the phrase |  
 | Relevance Score | 0.7 * KeyBERT relevance + 0.3 * cosine similarity |  
+
 Only keywords passing noise filters and coverage thresholds (at least 5% aspect_review) appear in the final output.  
 	
 ### **5. Aspect Sentiment Scoring**  
@@ -115,8 +133,9 @@ A local Qwen 2.5-7B-Instruct model rewrites the bullet structure summary into a 
 
 ### **8. Self-Growing Aspect Seed**  
  
+•	The system expands the aspect seed dictionary automatically based on coverage and semantic similarity.  
 •	If a keyword appears frequently and similarity ≥ 0.60, it is auto-added.  
-•	If between 0.50 and 0.59, it is stored in seed_candidates_review.json for manual approval.  
+•	If the similarity is between 0.50 and 0.59, the keyword will be stored in seed_candidates_review.json for manual approval.  
 
 ### **9. Recommended Dishes Extraction**  
  
