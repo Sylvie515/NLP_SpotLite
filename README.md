@@ -63,9 +63,12 @@ LOCAL_QWEN = r"C:\hf_cache\models\qwen2.5-7b-instruct-q4_k_m\qwen2.5-7b-instruct
 
 ## 🔁 **Processing Pipeline**  
 
-### **Pipeline Overview**  
+SpotLite is an NLP project that extracts aspect-level insights from Google Maps reviews.  
+This repository contains the implemented components of the initial pipeline (keyword extraction, SBERT-based aspect assignment, and seed management), as well as documentation describing the full hybrid pipeline used in the project.  
 
-The SpotLite system converts raw Google Maps reviews into structured, aspect-level insights through a multi-stage NLP pipeline.  
+### **Pipeline Overview - Implemented in This Repository**  
+
+The following stages are implemented in this repository:  
 
 - **Aspect-Based Sentiment Extraction (PyABSA)**  
   Extracts aspect–opinion–sentiment triplets from each review and generates candidate compound phrases with associated sentiment labels.  
@@ -77,13 +80,11 @@ The SpotLite system converts raw Google Maps reviews into structured, aspect-lev
 - **Keyword Extraction and Ranking (KeyBERT)**  
   Candidate phrases grouped by aspect are analyzed using KeyBERT to extract representative n-gram keywords (1–3 tokens).  
 
-- **Aspect-Aware Summarization (T5)**  
-  Extracted keywords and sentiment signals are used to generate concise aspect-level summaries describing key user feedback.  
+- **Keyword-Driven Structured Summary Generation and LLM Rewrite**  
+  Aspect-level sentiment statistics and extracted keywords are first converted into structured bullet summaries using rule-based templates.  
+  A local Qwen-2.5-7B-Instruct model then rewrites these structured summaries into fluent natural-language descriptions.  
 
-- **Structured Output Generation**  
-  The system produces structured JSON outputs containing aspect sentiment scores, ranked keywords, and generated summaries for downstream applications.  
-
-### **1. Text Cleaning & Google Metadata Parsing**  
+#### **1. Text Cleaning & Google Metadata Parsing**  
 
 •	Removes emojis, repeated whitespace, URLs  
 •	Removes Google attributes such as:  
@@ -92,7 +93,7 @@ The SpotLite system converts raw Google Maps reviews into structured, aspect-lev
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Meal Type: Dinner  
 •	Extracts available price range and stores it.  
 
-### **2. Aspect Candidate Extraction & Sentiment Detection (PyABSA)**  
+#### **2. Aspect Candidate Extraction & Sentiment Detection (PyABSA)**  
 
 •	🔗 [PyABSA](https://github.com/yangheng95/PyABSA)  
 •	We use PyABSA (ATEPC) to extract candidate aspect–opinion–sentiment triplets from each review.  
@@ -103,13 +104,13 @@ The SpotLite system converts raw Google Maps reviews into structured, aspect-lev
 
 •	These results form the "compound phrases" (opinion + aspect) and the associated sentiment labels will be further processed.  
 
-### **3. Semantic Aspect Assignment (SBERT prototype matching)**  
+#### **3. Semantic Aspect Assignment (SBERT prototype matching)**  
 
 •	For each aspect, we compute a prototype embedding (the mean embedding of current seed keywords).  
 •	Each candidate phrase (from PyABSA) is encoded using the SentenceTransformer embedder and compared to all prototype embeddings via cosine similarity.  
 •	If cosine similarity ≥ 0.50, the phrase is assigned to that aspect.  
 
-### **4. Keyword Filtering & Ranking**  
+#### **4. Keyword Filtering & Ranking**  
 
 •	For each aspect, we run KeyBERT on the grouped candidate phrases to extract top candidate n-grams (1–3 tokens).  
 •	For each candidate phrase, we compute:  
@@ -121,7 +122,7 @@ The SpotLite system converts raw Google Maps reviews into structured, aspect-lev
 
 Only keywords passing noise filters and coverage thresholds (at least 5% aspect_review) appear in the final output.  
 	
-### **5. Aspect Sentiment Scoring**  
+#### **5. Aspect Sentiment Scoring**  
 
 •	For each aspect, sentiment strength is computed as: score = (positive - negative) / (positive + negative)
 | Range | Label |  
@@ -131,25 +132,37 @@ Only keywords passing noise filters and coverage thresholds (at least 5% aspect_
 | score < -0.35 | negative |  
 | positive + negative = 0 | neutral |  
 
-### **6. Keyword-Driven Structured Summary Generation**  
+#### **6. Keyword-Driven Structured Summary Generation**  
 	
 Summaries use templated natural-language statements based on sentiment distributions.  
 	
-### **7. LLM Rewrite to Natural Summary**  
+#### **7. LLM Rewrite to Natural Summary**  
 
 A local Qwen 2.5-7B-Instruct model rewrites the bullet structure summary into a smooth summary.  
 
-### **8. Self-Growing Aspect Seed**  
+#### **8. Self-Growing Aspect Seed**  
  
 •	The system expands the aspect seed dictionary automatically based on coverage and semantic similarity.  
 •	If a keyword appears frequently and similarity ≥ 0.60, it is auto-added.  
 •	If the similarity is between 0.50 and 0.59, the keyword will be stored in seed_candidates_review.json for manual approval.  
 
-### **9. Recommended Dishes Extraction**  
+#### **9. Recommended Dishes Extraction**  
  
 •	The system automatically identifies top-5 praised dish names based on real user reviews.  
 •	Automatically selected from positive food aspect keywords, ranked by aspect-specific mention coverage and relevance score.  
 •	Removes generic words (e.g., “food”, “meal”, “dish”)  
+
+### **Hybrid pipeline - Described in Reports (Not Implemented in This Repository)**  
+
+The project reports describe an expanded hybrid pipeline and evaluation not included in this codebase (see /reports for full PDFs). Key components discussed in the reports include:  
+
+- TF–IDF based phrase ranking and co-occurrence clustering for improved keyword quality.  
+
+- Aspect-aware abstractive summarization (T5) and LLM-based evaluation approaches.  
+  
+- Structured JSON API outputs for downstream applications.
+
+(For full methodology and evaluation results, see reports/SpotLite_Final_Report.pdf).  
 
 ---  
 
