@@ -20,6 +20,8 @@ SpotLite/
 │  
 ├── output/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(# generated output files)  
 │  
+├── reports/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(# project documentation: proposal, midterm report, presentation slides, and final report)  
+│ 
 └── README.md  
 
 ---  
