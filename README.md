@@ -65,17 +65,23 @@ LOCAL_QWEN = r"C:\hf_cache\models\qwen2.5-7b-instruct-q4_k_m\qwen2.5-7b-instruct
 
 ### **Pipeline Overview**  
 
-- **PyABSA (ATEPC)**: Candidate extraction  
-  Extracts aspect–opinion–sentiment triplets from each review and outputs candidate "compound phrases" with sentiment.  
+The SpotLite system converts raw Google Maps reviews into structured, aspect-level insights through a multi-stage NLP pipeline.  
 
-- **SBERT prototype matching**: Aspect assignment  
-  Each candidate phrase is embedded and compared (cosine similarity) to per-aspect prototype vectors (mean of seed embeddings).  
+- **Aspect-Based Sentiment Extraction (PyABSA)**  
+  Extracts aspect–opinion–sentiment triplets from each review and generates candidate compound phrases with associated sentiment labels.  
+
+- **Semantic Aspect Assignment (Sentence-BERT)**  
+  Each candidate phrase is embedded and compared to aspect prototype vectors using cosine similarity.  
   Phrases with similarity ≥ 0.5 are assigned to that aspect.  
 
-- **KeyBERT**: Top keyword extraction  
-  After grouping candidate phrases by assigned aspect, KeyBERT extracts representative n-gram keywords (1–3 tokens) from that group.  
+- **Keyword Extraction and Ranking (KeyBERT)**  
+  Candidate phrases grouped by aspect are analyzed using KeyBERT to extract representative n-gram keywords (1–3 tokens).  
 
-Finally, the extracted keywords and sentiment scores are used to generate aspect-level summaries and structured outputs.  
+- **Aspect-Aware Summarization (T5)**  
+  Extracted keywords and sentiment signals are used to generate concise aspect-level summaries describing key user feedback.  
+
+- **Structured Output Generation**  
+  The system produces structured JSON outputs containing aspect sentiment scores, ranked keywords, and generated summaries for downstream applications.  
 
 ### **1. Text Cleaning & Google Metadata Parsing**  
 
